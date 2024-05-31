@@ -5,6 +5,7 @@ import CharacterList from "./components/CharacterList";
 import Navbar, { Favorities, Search, SearchResult } from "./components/Navbar";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Modal from "./components/Modal";
 function App() {
   const [characters, setCharacters] = useState([]);
   const [loading, setIsLoading] = useState(false);
@@ -52,6 +53,10 @@ function App() {
     setFavorite((prev) => [...prev, char]);
   };
 
+  const handleDeleteFavorite = (id) => {
+    setFavorite((prevFav) => prevFav.filter((fav) => fav.id !== id));
+  };
+
   const isAddToFavorite = favorite.map((fav) => fav.id).includes(selectedId);
 
   return (
@@ -60,7 +65,10 @@ function App() {
       <Navbar>
         <Search query={query} setQuery={setQuery} />
         <SearchResult numOfResult={characters.length} />
-        <Favorities numOfFavorites={favorite.length} />
+        <Favorities
+          favorites={favorite}
+          onDeleteFavorite={handleDeleteFavorite}
+        />
       </Navbar>
       <Main>
         <CharacterList
