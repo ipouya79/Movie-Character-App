@@ -72,7 +72,7 @@ function App() {
         <CharacterDetail
           selectedId={selectedId}
           onAddFavorite={handleAddFavorite}
-          isAddFavorite={isAddToFavorite}
+          isAddToFavorite={isAddToFavorite}
         />
       </Main>
     </div>
