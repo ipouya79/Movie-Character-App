@@ -5,7 +5,6 @@ function Navbar({ children }) {
     <nav className="navbar">
       <Logo />
       {children}
-      <Favorities />
     </nav>
   );
 }
@@ -19,7 +18,7 @@ export function Search({ query, setQuery }) {
   return (
     <input
       value={query}
-      onChange={(e) => setQuery(e.target.value) }
+      onChange={(e) => setQuery(e.target.value)}
       type="text"
       className="text-field"
       placeholder="search..."
@@ -31,11 +30,11 @@ export function SearchResult({ numOfResult }) {
   return <div className="navbar__result">Found {numOfResult} Character</div>;
 }
 
-function Favorities() {
+export function Favorities({ numOfFavorites }) {
   return (
     <button className="heart">
       <HeartIcon className="icon" />
-      <span className="badge">4</span>
+      <span className="badge">{numOfFavorites}</span>
     </button>
   );
 }
