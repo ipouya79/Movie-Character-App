@@ -5,56 +5,24 @@ import CharacterList from "./components/CharacterList";
 import Navbar, { Favorities, Search, SearchResult } from "./components/Navbar";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Modal from "./components/Modal";
+import useCharacters from "./hooks/useCharacters";
+
 function App() {
-  const [characters, setCharacters] = useState([]);
-  const [loading, setIsLoading] = useState(false);
   const [query, setQuery] = useState("");
-  const [selectedId, setSelectedId] = useState(null);
-  const [favorite, setFavorite] = useState(() =>
-    JSON.parse(localStorage.getItem("favorites")) || []
+
+  const { loading, characters } = useCharacters(
+    "https://rickandmortyapi.com/api/character/?name",
+    query
   );
 
- 
-
-useEffect(()=>{
-localStorage.setItem("favorites" , JSON.stringify(favorite) )
-
-
-},[favorite])
-
+  const [selectedId, setSelectedId] = useState(null);
+  const [favorite, setFavorite] = useState(
+    () => JSON.parse(localStorage.getItem("favorites")) || []
+  );
 
   useEffect(() => {
-    const controller = new AbortController();
-    const signal = controller.signal;
-    async function fetchData() {
-      try {
-        setIsLoading(true);
-        const { data } = await axios.get(
-          `https://rickandmortyapi.com/api/character/?name=${query}`,
-          { signal }
-        );
-        setCharacters(data.results.slice(0, 5));
-      } catch (err) {
-        if (!axios.isCancel()) {
-          setCharacters([]);
-          toast.error(err.response.data.error);
-        }
-      } finally {
-        setIsLoading(false);
-      }
-    }
-
-    if (query.length < 3) {
-      setCharacters([]);
-      return;
-    }
-
-    fetchData();
-    return () => {
-      controller.abort();
-    };
-  }, [query]);
+    localStorage.setItem("favorites", JSON.stringify(favorite));
+  }, [favorite]);
 
   const handleSelectCharacter = (id) => {
     setSelectedId((prevId) => (prevId === id ? null : id));
