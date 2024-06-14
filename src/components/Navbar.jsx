@@ -35,7 +35,6 @@ export function SearchResult({ numOfResult }) {
 
 export function Favorities({ favorites, onDeleteFavorite }) {
   const [isOpen, setIsOpen] = useState(false);
-  console.log("fav", favorites);
   return (
     <>
       <Modal onOpen={setIsOpen} open={isOpen} title="List Of Favorites">

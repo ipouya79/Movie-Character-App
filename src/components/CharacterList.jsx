@@ -7,7 +7,6 @@ export default function CharacterList({
   onSelectCharacter,
   selectedId,
 }) {
-  console.log(characters);
 
   if (isLoading) {
     return (
