@@ -49,7 +49,7 @@
 .loader-spin {
   color: var(--slate-300);
   display: flex;
-  alignitems: center;
+  align-items: center;
   gap: 1rem;
 }
 .main {
