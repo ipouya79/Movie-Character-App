@@ -43,9 +43,7 @@ function CharacterDetail({ selectedId, onAddFavorite, isAddToFavorite }) {
 
   if (!character || !selectedId)
     return (
-      <div style={{ flex: 1, color: "var(--slate-300)" }}>
-        Please select a character
-      </div>
+      <div className="character-detail-info">Please select a character</div>
     );
 
   return (
@@ -73,8 +71,10 @@ function CharacterSubInfo({ character, isAddToFavorite, onAddFavorite }) {
 
       <div className="character-detail__info  ">
         <h3 className="name">
-          <span>{character.gender === "Male" ? "👨" : "👩"}</span>
-          <span> &nbsp; {character.name}</span>
+          <span className="character-gender">
+            {character.gender === "Male" ? "👨" : "👩"}
+          </span>
+          <span>{character.name}</span>
         </h3>
         <div className="info">
           <span

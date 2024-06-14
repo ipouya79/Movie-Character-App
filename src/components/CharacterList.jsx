@@ -50,7 +50,7 @@ function CharacterName({ item }) {
   return (
     <h3 className="name">
       <span>{item.gender === "Male" ? "👨" : "👩"}</span>
-      <span> {item.name}</span>
+      <span>{item.name}</span>
     </h3>
   );
 }

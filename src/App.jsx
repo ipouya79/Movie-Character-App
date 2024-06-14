@@ -4,8 +4,8 @@ import CharacterDetail from "./components/CharacterDetail";
 import CharacterList from "./components/CharacterList";
 import Navbar, { Favorities, Search, SearchResult } from "./components/Navbar";
 import { useEffect, useState } from "react";
-import axios from "axios";
 import useCharacters from "./hooks/useCharacters";
+import useLocalStorage from "./hooks/useLocalStorage";
 
 function App() {
   const [query, setQuery] = useState("");
@@ -16,13 +16,8 @@ function App() {
   );
 
   const [selectedId, setSelectedId] = useState(null);
-  const [favorite, setFavorite] = useState(
-    () => JSON.parse(localStorage.getItem("favorites")) || []
-  );
 
-  useEffect(() => {
-    localStorage.setItem("favorites", JSON.stringify(favorite));
-  }, [favorite]);
+  const [favorite, setFavorite] = useLocalStorage("favorites", []);
 
   const handleSelectCharacter = (id) => {
     setSelectedId((prevId) => (prevId === id ? null : id));
