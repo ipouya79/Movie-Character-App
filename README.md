@@ -1,8 +1,15 @@
-# React + Vite
+Rick and Morty React App
+This is a simple React application that fetches data from the Rick and Morty API and displays it in a user-friendly interface.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Features:
+View a list of characters from the show
+Search for specific characters
+Click on a character to view more details
 
-Currently, two official plugins are available:
+Technologies Used:
+React
+Axios (for API requests)
+CSS (for styling)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Acknowledgements
+Data provided by the Rick and Morty API
