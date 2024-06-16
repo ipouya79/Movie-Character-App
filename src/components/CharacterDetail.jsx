@@ -43,7 +43,7 @@ function CharacterDetail({ selectedId, onAddFavorite, isAddToFavorite }) {
 
   if (!character || !selectedId)
     return (
-      <div className="character-detail-info">Please select a character</div>
+      <div className="character-detail-info">Please select a Rick & Morty series character </div>
     );
 
   return (
@@ -135,11 +135,11 @@ function EpisodeList({ episodes }) {
       <ul>
         {sortedEpisodes.map((item, index) => (
           <li key={item.id}>
-            <div>
+            <div className="text-sm">
               {String(index + 1).padStart(2, "0")} - &nbsp;
               {item.episode} : <strong>{item.name}</strong>{" "}
             </div>
-            <div className="badge badge--socondary">{item.air_date}</div>
+            <div className="badge badge--socondary text-sm">{item.air_date}</div>
           </li>
         ))}
       </ul>

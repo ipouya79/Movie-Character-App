@@ -24,7 +24,7 @@ export function Search({ query, setQuery }) {
       onChange={(e) => setQuery(e.target.value)}
       type="text"
       className="text-field"
-      placeholder="search..."
+      placeholder="search character..."
     />
   );
 }

@@ -270,4 +270,8 @@
     font-size: 0.8rem;
     width: 200px;
   }
+  .text-sm {
+    font-size: 11px !important;
+    font-weight: 500;
+  }
 }
